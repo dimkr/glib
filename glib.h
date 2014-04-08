@@ -271,8 +271,10 @@ extern "C" {
 
 /* Wrap the gcc __PRETTY_FUNCTION__ and __FUNCTION__ variables with
  * macros, so we can refer to them as strings unconditionally.
+ *
+ * Unfortunately these are _not_ treated as strings anymore in GCC3.4.
  */
-#ifdef	__GNUC__
+#if	defined(__GNUC__) && (__GNUC__ == 3 && __GNUC_MINOR__ < 4)
 #define	G_GNUC_FUNCTION		__FUNCTION__
 #define	G_GNUC_PRETTY_FUNCTION	__PRETTY_FUNCTION__
 #else	/* !__GNUC__ */

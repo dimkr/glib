@@ -17,7 +17,7 @@ rm -f glibconfig-sysdefs.h
 
 dnl we need to AC_DIVERT_PUSH/AC_DIVERT_POP these variable definitions so they
 dnl are available for $ac_help expansion (don't we all *love* autoconf?)
-AC_DIVERT_PUSH(AC_DIVERSION_NOTICE)dnl
+AC_DIVERT_PUSH()dnl
 #
 # The following version number definitions apply to GLib, GModule and GThread
 # as a whole, so if changes occoured in any of them, they are all
@@ -81,7 +81,7 @@ AC_CANONICAL_HOST
 
 dnl figure debugging default, prior to $ac_help setup
 dnl
-AC_DIVERT_PUSH(AC_DIVERSION_NOTICE)dnl
+AC_DIVERT_PUSH()dnl
 if test `expr $GLIB_MINOR_VERSION \% 2` = 1 ; then
 	debug_default=yes
 else

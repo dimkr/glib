@@ -481,8 +481,12 @@ g_get_any_init (void)
 #  ifdef HAVE_GETPWUID_R
         struct passwd pwd;
 #    ifdef _SC_GETPW_R_SIZE_MAX  
+#      ifdef __GLIBC__
         /* This reurns the maximum length */
         guint bufsize = sysconf (_SC_GETPW_R_SIZE_MAX);
+#      else
+        guint bufsize = _SC_GETPW_R_SIZE_MAX;
+#      endif
 #    else /* _SC_GETPW_R_SIZE_MAX */
         guint bufsize = 64;
 #    endif /* _SC_GETPW_R_SIZE_MAX */

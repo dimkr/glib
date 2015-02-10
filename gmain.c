@@ -53,6 +53,9 @@
 #include <unistd.h>
 #endif /* HAVE_UNISTD_H */
 #include <errno.h>
+#if defined (HAVE_POLL) && !(defined (sun) && !defined (__SVR4))
+#include <poll.h>
+#endif
 
 #ifdef NATIVE_WIN32
 #define STRICT
